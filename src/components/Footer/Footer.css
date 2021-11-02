@@ -1,0 +1,12 @@
+.footer-link a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.footer-color{
+  background: rgb(9,5,82);
+background: linear-gradient(90deg, rgba(9,5,82,1) 100%, rgba(5,5,57,1) 100%, rgba(0,212,255,1) 100%);
+}
