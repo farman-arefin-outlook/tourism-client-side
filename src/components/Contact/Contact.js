@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
-import SectionBg2 from "./../../assets/images/sectionBg.PNG";
+import SectionBg2 from "./../../assets/images/sectionBg-2.PNG";
 import Bounce from "react-reveal/Bounce";
 import Slide from "react-reveal/Slide";
 

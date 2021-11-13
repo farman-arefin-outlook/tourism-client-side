@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { useHistory, useLocation } from 'react-router';
 
-const Login = () => {
+const SignIn = () => {
     const { AllContexts } = useAuth();
     const { signInWithGoogle, signInWithGithub, signInWithFacebook, signInWithEmailandPass, error, getEmail, getPassword, setUser, setError } = AllContexts;
 
@@ -17,6 +17,16 @@ const Login = () => {
     const location = useLocation();
     const redirect = location?.state?.from || '/home';
 
+
+    const googleHandler = () => {
+        signInWithGoogle()
+            .then((result) => {
+                setUser(result.user);
+                history.push(redirect);
+            }).catch(error => {
+                setError(error.message);
+            });
+    }
 
 
     // const location = useLocation();
@@ -85,15 +95,7 @@ const Login = () => {
             <p className="mt-3">Or</p>
             <p> Login with</p>
             <div>
-                <button onClick={() => {
-                    signInWithGoogle()
-                        .then((result) => {
-                            setUser(result.user);
-                            history.push(redirect);
-                        }).catch(error => {
-                            setError(error.message);
-                        });
-                }} className="btn">
+                <button onClick={googleHandler} className="btn">
                     <img src={google} width="46px" alt="google-icon" />
                 </button>
                 <button onClick={signInWithFacebook} className="btn">
@@ -107,4 +109,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignIn;
