@@ -18,7 +18,6 @@ import PrivateRoute from './Route/PrivateRoute';
 
 import Cart from './components/Cart/Cart';
 
-import Services from './components/Appoinment/Appoinment';
 import Appoinment from './components/Appoinment/Appoinment';
 
 function App() {
