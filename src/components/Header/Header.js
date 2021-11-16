@@ -43,7 +43,7 @@ const Header = () => {
 
                             </NavDropdown> */}
                             <Nav.Link as={NavLink} to="/contact">Contact Us</Nav.Link>
-                            <Nav.Link as={NavLink} to="/admit" className='custom-logo'>
+                            <Nav.Link as={NavLink} to="/cart" className='custom-logo'>
                                 <FontAwesomeIcon icon={faShoppingCart} />
                                 <Badge className='badge'>{selectedCourse.length}</Badge>
                             </Nav.Link>

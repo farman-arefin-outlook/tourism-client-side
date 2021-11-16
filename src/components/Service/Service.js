@@ -8,7 +8,7 @@ import './Service.css';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 const Service = ({ service }) => {
-    const { img, title, description, key } = service;
+    const { img, title, description, _id } = service;
 
     const { admit } = useAuth();
     return (
@@ -24,7 +24,7 @@ const Service = ({ service }) => {
                     </Card.Body>
 
                     <Card.Body className="d-flex justify-content-between">
-                        <NavLink to={`/appoint/${key}`} className="btn btn-primary me-1">View Details</NavLink>
+                        <NavLink to={`/appoint/${_id}`} className="btn btn-primary me-1">View Details</NavLink>
                         <Button onClick={() => admit(service)} variant="primary"><FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Add To Cart</Button>
                     </Card.Body>
                 </Card>

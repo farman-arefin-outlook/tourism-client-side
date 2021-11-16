@@ -57,9 +57,9 @@ function App() {
             {/* <Route exact path='/appoint'>
               <Appoinment></Appoinment>
             </Route> */}
-            <Route path="/appoint/:key">
+            <PrivateRoute path="/appoint/:id">
               <Details></Details>
-            </Route>
+            </PrivateRoute>
             <Route path='*'>
               <PageNotFound></PageNotFound>
             </Route>
