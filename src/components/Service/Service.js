@@ -15,7 +15,7 @@ const Service = ({ service }) => {
 
     const { admit, AllContexts } = useAuth();
     const { user } = AllContexts;
-    const { email } = user;
+    const { uid } = user;
     return (
         <div>
             <Zoom>
@@ -31,7 +31,7 @@ const Service = ({ service }) => {
                     <Card.Body className="d-flex justify-content-between">
                         <NavLink to={`/appoint/${_id}`} className="btn btn-primary me-1">View Details</NavLink>
                         <Button onClick={() => {
-                            if (email) {
+                            if (uid) {
                                 admit(service);
                             } else {
                                 history.push("/signin");
