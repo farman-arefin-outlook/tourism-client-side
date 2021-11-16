@@ -5,12 +5,17 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import Zoom from "react-reveal/Zoom";
 import './Service.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 const Service = ({ service }) => {
+
+    const history = useHistory();
+
     const { img, title, description, _id } = service;
 
-    const { admit } = useAuth();
+    const { admit, AllContexts } = useAuth();
+    const { user } = AllContexts;
+    const { email } = user;
     return (
         <div>
             <Zoom>
@@ -25,7 +30,13 @@ const Service = ({ service }) => {
 
                     <Card.Body className="d-flex justify-content-between">
                         <NavLink to={`/appoint/${_id}`} className="btn btn-primary me-1">View Details</NavLink>
-                        <Button onClick={() => admit(service)} variant="primary"><FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Add To Cart</Button>
+                        <Button onClick={() => {
+                            if (email) {
+                                admit(service);
+                            } else {
+                                history.push("/signin");
+                            }
+                        }} variant="primary"><FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Add To Cart</Button>
                     </Card.Body>
                 </Card>
             </Zoom>

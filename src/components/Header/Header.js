@@ -6,6 +6,7 @@ import { faShoppingCart, faPhone } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
 import { NavLink } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
     const { AllContexts, selectedCourse } = useAuth();
@@ -43,10 +44,11 @@ const Header = () => {
 
                             </NavDropdown> */}
                             <Nav.Link as={NavLink} to="/contact">Contact Us</Nav.Link>
-                            <Nav.Link as={NavLink} to="/cart" className='custom-logo'>
+
+                            {/* <Nav.Link as={NavLink} to="/cart" className='custom-logo'>
                                 <FontAwesomeIcon icon={faShoppingCart} />
                                 <Badge className='badge'>{selectedCourse.length}</Badge>
-                            </Nav.Link>
+                            </Nav.Link> */}
                             {
                                 !displayName ? (
                                     <>
@@ -54,22 +56,25 @@ const Header = () => {
                                         <Nav.Link as={NavLink} to="/signin">Sign In</Nav.Link>
                                     </>
                                 ) : (
-                                    <NavDropdown
-                                        title={
-                                            <img
-                                                style={{ width: '40px', borderRadius: '50%' }}
-                                                src={user.photoURL}
-                                                alt="" />}
-                                    >
-                                        <div className="text-center mx-2">
-                                            <h5 className="text-center m-2">{displayName}</h5>
-                                            <h6>Account</h6>
-                                            <h6>Appointed</h6>
-                                            <h6>Visited</h6>
-                                            <h6>Settings</h6>
-                                            <button onClick={logOut} className="btn btn-primary mt-2">Sign Out</button>
-                                        </div>
-                                    </NavDropdown>
+                                    <>
+                                        <Nav.Link as={HashLink} to="/dashboard">Dashboard</Nav.Link>
+                                        <NavDropdown
+                                            title={
+                                                <img
+                                                    style={{ width: '40px', borderRadius: '50%' }}
+                                                    src={user.photoURL}
+                                                    alt="" />}
+                                        >
+                                            <div className="text-center mx-2">
+                                                <h5 className="text-center m-2">{displayName}</h5>
+                                                <h6>Account</h6>
+                                                <h6>Appointed</h6>
+                                                <h6>Visited</h6>
+                                                <h6>Settings</h6>
+                                                <button onClick={logOut} className="btn btn-primary mt-2">Sign Out</button>
+                                            </div>
+                                        </NavDropdown>
+                                    </>
                                 )}
                             <Nav.Link href="#link" className='custom-logo'>
                                 <FontAwesomeIcon icon={faPhone} />

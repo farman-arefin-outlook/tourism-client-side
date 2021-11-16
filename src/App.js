@@ -19,6 +19,7 @@ import PrivateRoute from './Route/PrivateRoute';
 import Cart from './components/Cart/Cart';
 
 import Appoinment from './components/Appoinment/Appoinment';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
             <PrivateRoute path='/cart'>
               <Cart></Cart>
             </PrivateRoute>
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
+            </Route>
             <Route path='/signin'>
               <SignIn></SignIn>
             </Route>
