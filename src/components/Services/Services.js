@@ -5,8 +5,8 @@ import Slide from 'react-reveal/Slide';
 import sectionBg from './../../assets/images/sectionBg-2.PNG';
 import { Container } from 'react-bootstrap';
 import Service from '../Service/Service';
-const Appoinment = () => {
-    const { services } = useAuth();
+const Services = () => {
+    const { services, totalService } = useAuth();
     return (
         <div className="py-5" style={{ background: `url(${sectionBg})` }}>
             <div className="text-center text-white">
@@ -23,9 +23,10 @@ const Appoinment = () => {
                         services.map((service) => (<Service service={service} key={service.key}></Service>))
                     }
                 </div>
+                <h1 className='text-white'>{totalService}</h1>
             </Container>
         </div>
     );
 };
 
-export default Appoinment;
+export default Services;

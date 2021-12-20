@@ -18,8 +18,9 @@ import PrivateRoute from './Route/PrivateRoute';
 
 import Cart from './components/Cart/Cart';
 
-import Appoinment from './components/Appoinment/Appoinment';
+//import Services from './components/Services/Services';
 import Dashboard from './components/Dashboard/Dashboard';
+import Services from './components/Services/Services';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
               <About></About>
             </Route>
             <Route path='/services'>
-              <Appoinment></Appoinment>
+              <Services></Services>
             </Route>
             <Route path='/contact'>
               <Contact></Contact>
