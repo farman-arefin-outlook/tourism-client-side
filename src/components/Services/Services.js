@@ -5,8 +5,14 @@ import Slide from 'react-reveal/Slide';
 import sectionBg from './../../assets/images/sectionBg-2.PNG';
 import { Container } from 'react-bootstrap';
 import Service from '../Service/Service';
+import { useState } from "react";
 const Services = () => {
     const { services, totalService } = useAuth();
+    const [currentPage, setCurrentPage] = useState(0);
+    function pageHandler(number) {
+        setCurrentPage(number);
+    }
+    console.log(currentPage);
     return (
         <div className="py-5" style={{ background: `url(${sectionBg})` }}>
             <div className="text-center text-white">
@@ -20,10 +26,18 @@ const Services = () => {
             <Container>
                 <div className="my-3 d-flex flex-wrap justify-content-between">
                     {
-                        services.map((service) => (<Service service={service} key={service.key}></Service>))
+                        services.map((service) => (<Service service={service} key={service._id}></Service>))
                     }
                 </div>
-                <h1 className='text-white'>{totalService}</h1>
+                <div className='d-flex justify-content-center'>
+                    {
+                        [...Array(totalService).keys()].map((number) => (
+                            <button
+                                onClick={() => pageHandler(number)}
+                                key={number}>{number}</button>
+                        ))
+                    }
+                </div>
             </Container>
         </div>
     );
